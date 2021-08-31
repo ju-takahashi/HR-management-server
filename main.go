@@ -10,24 +10,25 @@ import (
 
 // 社員情報
 type member struct {
-	Id   string `form:"id" json:"id"`
-	Name string `form:"name" json:"name"`
+	Id       string `form:"id" json:"id"`
+	Name     string `form:"name" json:"name"`
+	JoinDate string `form:"joinDate" json:"joinDate"`
 }
 
 func main() {
 	router := gin.Default()
 
 	members := []member{
-		{Id: "1", Name: "テスト太郎"},
-		{Id: "2", Name: "テスト花子"},
-		{Id: "3", Name: "山田太郎"},
-		{Id: "4", Name: "北海道道三郎"},
-		{Id: "5", Name: "岩手いわ"},
-		{Id: "6", Name: "沖縄縄子"},
-		{Id: "7", Name: "新潟潟子"},
-		{Id: "8", Name: "千葉葉子"},
-		{Id: "9", Name: "金沢沢子"},
-		{Id: "10", Name: "テスト二郎"},
+		{Id: "1", Name: "テスト太郎", JoinDate: "2021/08/19"},
+		{Id: "2", Name: "テスト花子", JoinDate: "2021/08/20"},
+		{Id: "3", Name: "山田太郎", JoinDate: "2021/08/21"},
+		{Id: "4", Name: "北海道道三郎", JoinDate: "2021/08/22"},
+		{Id: "5", Name: "岩手いわ", JoinDate: "2021/08/23"},
+		{Id: "6", Name: "沖縄縄子", JoinDate: "2021/08/24"},
+		{Id: "7", Name: "新潟潟子", JoinDate: "2021/08/25"},
+		{Id: "8", Name: "千葉葉子", JoinDate: "2021/08/26"},
+		{Id: "9", Name: "金沢沢子", JoinDate: "2021/08/27"},
+		{Id: "10", Name: "テスト二郎", JoinDate: "2021/08/28"},
 	}
 
 	id := 11
@@ -86,6 +87,7 @@ func main() {
 			// IDの一致する社員情報を更新する。
 			if members[i].Id == editMember.Id {
 				members[i].Name = editMember.Name
+				members[i].JoinDate = editMember.JoinDate
 				break
 			}
 		}
